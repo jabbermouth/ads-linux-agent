@@ -22,6 +22,12 @@ RUN apt-get update \
         libunwind8 \
         netcat
 
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - \
+&& apt-get install -y nodejs \
+&& npm install azure-pipelines-task-lib \
+&& npm install @types/node \
+&& npm install @types/q
+
 RUN wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb
 
 RUN dpkg -i packages-microsoft-prod.deb
